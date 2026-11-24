@@ -196,22 +196,15 @@ button:disabled { opacity: 0.6; cursor: wait; }
   flex-direction: column;
   min-height: 100%;
 }
-.cover {
-  min-height: 150px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #fffaf3;
-  text-decoration: none;
+.cover-link { display: block; }
+.cover-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  height: auto;
+  object-fit: cover;
+  background: var(--gold);
 }
-.cover-kicker { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.cover-letter { font-family: var(--serif); font-size: 4rem; line-height: 0.8; align-self: flex-end; }
-.cover-1 { background: #9d341f; }
-.cover-2 { background: #a68456; }
-.cover-3 { background: #243126; }
-.cover-4 { background: #1e5c45; }
-.cover-5 { background: #3d4f73; }
 .card-body { padding: 0.9rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
 .card-body h2 { font-size: 1.25rem; }
 .card-body a { text-decoration: none; }

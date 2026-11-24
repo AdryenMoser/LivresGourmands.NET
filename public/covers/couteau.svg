@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Le couteau encore timide">
+  <rect width="400" height="560" fill="#3d4f73"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <path d="M120 250 l150-70 16 16-150 70z" fill="#fffaf3"/><rect x="250" y="165" width="46" height="18" rx="4" transform="rotate(-25 250 165)" fill="#c69c6d"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Le couteau encore</text><text x="40" y="436" fill="#fffaf3" font-family="Georgia, serif" font-size="26">timide</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

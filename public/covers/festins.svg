@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Festins pour six">
+  <rect width="400" height="560" fill="#17102c"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <rect x="120" y="190" width="160" height="12" fill="#c69c6d"/><circle cx="150" cy="170" r="16" fill="#fffaf3"/><circle cx="200" cy="160" r="16" fill="#fffaf3"/><circle cx="250" cy="170" r="16" fill="#d7db2f"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Festins pour six</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { api, messageOf } from '../api';
 import BookCard from '../components/BookCard';
 import Layout from '../components/Layout';
+import { coverFor } from '../covers';
 
 export default function Home() {
   const [params, setParams] = useSearchParams();
@@ -54,8 +55,8 @@ export default function Home() {
           <div className="container pb-4" aria-roledescription="carrousel">
             <div className="bg-white text-dark">
               <div className="row g-0">
-                <div className="col-md-4 cover m-0" style={{ minHeight: 220 }}>
-                  <strong>{spotlight[slide].titre}</strong>
+                <div className="col-md-4">
+                  <img className="cover-photo" src={coverFor(spotlight[slide].titre)} alt={`Couverture de ${spotlight[slide].titre}`} />
                 </div>
                 <div className="col-md-8 p-4">
                   <h2 className="h3 text-uppercase">{spotlight[slide].titre}</h2>

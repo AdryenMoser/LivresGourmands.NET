@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Bouillons clairs">
+  <rect width="400" height="560" fill="#4a6670"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <ellipse cx="200" cy="250" rx="70" ry="24" fill="#fffaf3"/><path d="M170 200 q10-30 0-50 M200 190 q12-34 0-56 M230 200 q10-30 0-48" fill="none" stroke="#c69c6d" stroke-width="6" stroke-linecap="round"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Bouillons clairs</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

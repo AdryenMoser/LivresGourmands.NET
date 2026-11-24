@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Marchés d'ailleurs">
+  <rect width="400" height="560" fill="#5c4a6e"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <path d="M130 200 h140 l-16 70 h-108z" fill="#fffaf3"/><path d="M130 200 q70-50 140 0" fill="none" stroke="#c69c6d" stroke-width="8"/><path d="M150 230 h100 M150 250 h100" stroke="#c69c6d" stroke-width="3"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Marchés d'ailleurs</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

@@ -8,10 +8,10 @@ export function esc(value) {
   }[char]));
 }
 
-export function euro(value) {
+export function dollar(value) {
   const number = Number(value);
   if (Number.isNaN(number)) return '—';
-  return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(number);
+  return new Intl.NumberFormat('fr-CA', { style: 'currency', currency: 'CAD' }).format(number);
 }
 
 export const STATUTS = {

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Tartes sans détour">
+  <rect width="400" height="560" fill="#8d3b32"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <ellipse cx="200" cy="250" rx="80" ry="22" fill="#c69c6d"/><path d="M120 250 q80-90 160 0" fill="#fffaf3"/><circle cx="170" cy="220" r="8" fill="#d7db2f"/><circle cx="210" cy="210" r="8" fill="#c69c6d"/><circle cx="230" cy="230" r="7" fill="#c69c6d"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Tartes sans détour</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

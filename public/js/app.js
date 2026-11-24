@@ -1,14 +1,10 @@
 import { api, ApiError } from './api.js';
-import { esc, etoiles, euro, LIVRAISON, PAIEMENT, statutLabel } from './format.js';
+import { coverSrc, esc, etoiles, euro, LIVRAISON, PAIEMENT, statutLabel } from './format.js';
 
 const STAFF = new Set(['editeur', 'gestionnaire', 'administrateur']);
 const state = { user: null, categories: [], cartCount: 0 };
 
 const main = () => document.querySelector('#contenu');
-
-function coverClass(categorieId) {
-  return `cover cover-${categorieId || 1}`;
-}
 
 function navigate(url) {
   const next = new URL(url, location.origin);
@@ -83,13 +79,11 @@ async function refreshCart() {
 }
 
 function bookCard(book) {
-  const letter = esc(book.titre.slice(0, 1));
-  const low = book.stock > 0 && book.stock <= 3 ? `${book.stock} en rayon` : `${book.stock} en rayon`;
+  const low = `${book.stock} en rayon`;
   return `
     <article class="card">
-      <a class="${coverClass(book.categorie.id)}" href="/ouvrages/${book.id}">
-        <span class="cover-kicker">${esc(book.categorie.nom || 'Cuisine')}</span>
-        <span class="cover-letter">${letter}</span>
+      <a class="cover-link" href="/ouvrages/${book.id}">
+        <img class="cover-img" src="${coverSrc(book.titre)}" alt="Couverture de ${esc(book.titre)}">
       </a>
       <div class="card-body">
         <h2><a href="/ouvrages/${book.id}">${esc(book.titre)}</a></h2>
@@ -159,10 +153,7 @@ async function viewDetail(id) {
     </form>` : '<p class="muted"><a href="/connexion">Connectez-vous</a> avec un compte client pour donner un avis ou un commentaire.</p>';
   main().innerHTML = `
     <article class="detail">
-      <a class="${coverClass(book.categorie.id)}" href="/ouvrages/${book.id}">
-        <span class="cover-kicker">${esc(book.categorie.nom || '')}</span>
-        <span class="cover-letter">${esc(book.titre.slice(0, 1))}</span>
-      </a>
+      <img class="cover-img" src="${coverSrc(book.titre)}" alt="Couverture de ${esc(book.titre)}">
       <div class="sheet">
         <p class="kicker">${esc(book.categorie.nom || '')}</p>
         <h1>${esc(book.titre)}</h1>

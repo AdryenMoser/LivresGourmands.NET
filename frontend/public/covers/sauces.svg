@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Sauces de saison">
+  <rect width="400" height="560" fill="#3d4a2a"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <path d="M160 150 h50 l18 40 v80 h-86 v-80z" fill="#fffaf3"/><rect x="168" y="130" width="34" height="22" fill="#c69c6d"/><path d="M175 210 q20 16 40 0" stroke="#c69c6d" stroke-width="4" fill="none"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Sauces de saison</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

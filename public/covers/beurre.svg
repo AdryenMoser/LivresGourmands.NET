@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Le beurre et la manière">
+  <rect width="400" height="560" fill="#c69c6d"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <rect x="130" y="180" width="140" height="80" rx="8" fill="#fffaf3"/><rect x="130" y="180" width="140" height="22" fill="#17102c"/><path d="M150 230 h100" stroke="#17102c" stroke-width="4"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Le beurre et la</text><text x="40" y="436" fill="#fffaf3" font-family="Georgia, serif" font-size="26">manière</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

@@ -74,17 +74,14 @@ a:hover { color: #3f3f12; }
 }
 .btn-navy:hover { background: #2a2148; color: var(--lime); }
 
-.cover {
-  display: grid;
-  place-items: end start;
-  min-height: 180px;
-  padding: 1rem;
-  color: #fff;
-  background:
-    linear-gradient(160deg, rgba(23, 16, 44, 0.2), rgba(23, 16, 44, 0.72)),
-    var(--gold);
+.cover-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  height: auto;
+  object-fit: cover;
+  background: var(--gold);
 }
-.cover strong { font-family: Raleway, sans-serif; font-size: 1.2rem; line-height: 1.2; }
 
 .book-card {
   background: #fff;

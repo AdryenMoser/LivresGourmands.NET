@@ -1,7 +1,7 @@
-const euro = new Intl.NumberFormat('fr-CA', { style: 'currency', currency: 'EUR' });
+const dollar = new Intl.NumberFormat('fr-CA', { style: 'currency', currency: 'CAD' });
 
 export function money(value) {
-  return euro.format(Number(value) || 0);
+  return dollar.format(Number(value) || 0);
 }
 
 export function stars(note) {

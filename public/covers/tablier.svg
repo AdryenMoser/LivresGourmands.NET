@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Premier tablier">
+  <rect width="400" height="560" fill="#7a2e2e"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <path d="M160 140 h80 l20 150 h-120z" fill="#fffaf3"/><path d="M175 140 q25-30 50 0" fill="none" stroke="#c69c6d" stroke-width="8"/><rect x="185" y="200" width="30" height="22" rx="4" fill="#c69c6d"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Premier tablier</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

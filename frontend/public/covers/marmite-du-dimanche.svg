@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Couverture : Marmite du dimanche">
+  <rect width="400" height="560" fill="#6e4e2e"/>
+  <rect x="28" y="28" width="344" height="504" fill="none" stroke="#fffaf3" stroke-width="3"/>
+  <ellipse cx="200" cy="250" rx="70" ry="18" fill="#17102c" opacity="0.25"/><path d="M145 160 h110 v70 a55 40 0 0 1-110 0z" fill="#fffaf3"/><path d="M145 175 h110" stroke="#17102c" stroke-width="6"/><rect x="168" y="120" width="64" height="16" rx="4" fill="#17102c"/>
+  <text x="40" y="400" fill="#fffaf3" font-family="Georgia, serif" font-size="26">Marmite du</text><text x="40" y="436" fill="#fffaf3" font-family="Georgia, serif" font-size="26">dimanche</text>
+  <text x="40" y="510" fill="#d7db2f" font-family="Georgia, serif" font-size="16">Livres Gourmands</text>
+</svg>

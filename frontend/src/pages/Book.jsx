@@ -4,6 +4,7 @@ import { api, messageOf } from '../api';
 import Layout from '../components/Layout';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import { coverFor } from '../covers';
 import { money, stars } from '../format';
 
 export default function Book() {
@@ -70,7 +71,7 @@ export default function Book() {
         {book && (
           <div className="row g-4">
             <div className="col-md-4">
-              <div className="cover" style={{ minHeight: 320 }}><strong>{book.titre}</strong></div>
+              <img className="cover-photo" src={coverFor(book.titre)} alt={`Couverture de ${book.titre}`} />
             </div>
             <div className="col-md-8">
               <p className="text-uppercase small mb-1" style={{ letterSpacing: '0.12em' }}>{book.categorie?.nom}</p>
