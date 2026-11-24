@@ -79,6 +79,8 @@ Il n’y a pas de fichier Figma ni Adobe XD, ni de vidéo : ces outils ne sont p
 
 Maquette Figma : www.figma.com/design/PuhK1y0VMapg4sket…/Livres-Gourmands-simple2 
 
+www.figma.com/design/PuhK1y0VMapg4sketmsE21/Livres-Gourmands-simple2
+
 ## Prérequis
 
 - Node.js 20 ou plus récent
