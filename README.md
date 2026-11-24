@@ -1,4 +1,4 @@
-# livresgourmands.net
+# LivresGourmands.net
 
 ## Description du projet
 
