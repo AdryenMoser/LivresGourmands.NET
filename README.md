@@ -77,7 +77,7 @@ Lancer l’API avant le client. Le client proxifie `/api` vers le port 4721. Le 
 
 Il n’y a pas de fichier Figma ni Adobe XD, ni de vidéo : ces outils ne sont pas dans l’environnement. Le mot de passe oublié n’envoie pas de courriel.
 
-Maquette Figma : www.figma.com/design/PuhK1y0VMapg4sket…/Livres-Gourmands-simple2 
+Maquette Figma :
 
 www.figma.com/design/PuhK1y0VMapg4sketmsE21/Livres-Gourmands-simple2
 
