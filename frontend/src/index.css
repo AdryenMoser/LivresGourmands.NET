@@ -1,0 +1,115 @@
+:root {
+  --ink: #17102c;
+  --muted: #5c5c5c;
+  --gold: #c69c6d;
+  --gold-ink: #6e4e2e;
+  --lime: #d7db2f;
+  --paper: #f6f3ee;
+  --line: #cccccc;
+  --navy: #17102c;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Open Sans", "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+}
+
+h1, h2, .brand-name, .navbar-brand {
+  font-family: Raleway, "Segoe UI", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+h1 { color: var(--ink); }
+h2 { color: var(--gold-ink); font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+a { color: var(--gold-ink); }
+a:hover { color: #3f3f12; }
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  z-index: 20;
+}
+.skip:focus { top: 0.5rem; }
+
+.site-nav {
+  background: var(--navy);
+}
+.site-nav .navbar-brand,
+.site-nav .nav-link,
+.site-nav .navbar-text {
+  color: #fff;
+}
+.site-nav .nav-link { font-weight: 300; letter-spacing: 0.03em; }
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus,
+.site-nav .nav-link.active {
+  color: var(--lime);
+}
+
+.btn-gold {
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+.btn-gold:hover,
+.btn-gold:focus {
+  background: transparent;
+  color: var(--gold-ink);
+  border-color: var(--gold);
+}
+
+.btn-navy {
+  background: var(--navy);
+  border: 1px solid var(--navy);
+  color: #fff;
+}
+.btn-navy:hover { background: #2a2148; color: var(--lime); }
+
+.cover {
+  display: grid;
+  place-items: end start;
+  min-height: 180px;
+  padding: 1rem;
+  color: #fff;
+  background:
+    linear-gradient(160deg, rgba(23, 16, 44, 0.2), rgba(23, 16, 44, 0.72)),
+    var(--gold);
+}
+.cover strong { font-family: Raleway, sans-serif; font-size: 1.2rem; line-height: 1.2; }
+
+.book-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  height: 100%;
+}
+.book-card:hover { border-color: var(--gold); }
+
+.hero {
+  background: var(--navy);
+  color: #fff;
+}
+.hero .carousel-caption {
+  position: static;
+  text-align: left;
+  padding: 1.5rem;
+}
+.hero h1 { color: #fff; }
+
+.page { padding: 1.5rem 0 3rem; }
+.notice { background: #fff; border-left: 4px solid var(--gold); }
+
+footer.site-foot {
+  background: var(--navy);
+  color: #fff;
+  padding: 1.5rem 0;
+}
+footer.site-foot a { color: var(--lime); }

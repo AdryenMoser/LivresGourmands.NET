@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wireframes — Livres Gourmands</title>
+  <style>
+    body { margin: 0; background: #f3f3f3; color: #111; font-family: "Segoe UI", sans-serif; }
+    header, section { width: min(1100px, calc(100% - 2rem)); margin: 1.5rem auto; }
+    h1 { font-size: 1.6rem; }
+    .pair { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; }
+    .frame { background: #fff; border: 2px solid #111; min-height: 280px; padding: 0.6rem; }
+    .bar, .block, .row, .btn { border: 1px solid #111; background: #fff; }
+    .bar { height: 28px; margin-bottom: 0.4rem; }
+    .block { height: 70px; margin-bottom: 0.4rem; }
+    .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+    .row div { border: 1px solid #111; height: 72px; }
+    .btn { display: inline-block; padding: 0.2rem 0.4rem; margin-top: 0.4rem; }
+    .label { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.3rem; }
+    @media (max-width: 800px) { .pair { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wireframes — Livres Gourmands</h1>
+    <p>Maquettes basse fidélité, bureau et mobile. Aucune couleur de la charte : seulement la structure. L’intégration haute fidélité est l’application React.</p>
+  </header>
+  <section>
+    <h2>Accueil et recherche</h2>
+    <div class="pair">
+      <div><p class="label">Bureau</p><div class="frame"><div class="bar">Logo · Catalogue · Liste · Panier · Recherche</div><div class="block">Carrousel</div><div class="row"><div>Filtre</div><div>Filtre</div><div>Filtre</div></div><div class="row"><div>Carte</div><div>Carte</div><div>Carte</div></div></div></div>
+      <div><p class="label">Mobile</p><div class="frame"><div class="bar">Logo · Menu</div><div class="block">Recherche</div><div class="block">Carte</div><div class="block">Carte</div></div></div>
+    </div>
+  </section>
+  <section>
+    <h2>Fiche ouvrage</h2>
+    <div class="pair">
+      <div><p class="label">Bureau</p><div class="frame"><div class="bar">Fil d’Ariane</div><div class="row"><div>Image</div><div>Titre, prix, stock, quantité</div><div>Ajouter</div></div><div class="block">Avis</div><div class="block">Commentaires</div></div></div>
+      <div><p class="label">Mobile</p><div class="frame"><div class="block">Image</div><div class="block">Prix et stock</div><div class="btn">Ajouter au panier</div></div></div>
+    </div>
+  </section>
+  <section>
+    <h2>Compte, panier, livraison</h2>
+    <div class="pair">
+      <div><p class="label">Bureau</p><div class="frame"><div class="bar">Connexion ou inscription</div><div class="block">Tableau du panier · quantité · retirer</div><div class="block">Livraison · règlement simulé · adresse</div><div class="btn">Confirmer</div></div></div>
+      <div><p class="label">Mobile</p><div class="frame"><div class="block">Ligne du panier</div><div class="block">Total</div><div class="btn">Commander</div></div></div>
+    </div>
+  </section>
+  <section>
+    <h2>Liste cadeau et atelier</h2>
+    <div class="pair">
+      <div><p class="label">Bureau</p><div class="frame"><div class="bar">Code de la liste</div><div class="block">Ouvrages restants · mettre au panier</div><div class="row"><div>Menu atelier</div><div>Ouvrages</div><div>Commandes</div></div></div></div>
+      <div><p class="label">Mobile</p><div class="frame"><div class="block">Saisie du code</div><div class="block">Article</div><div class="block">Menu atelier empilé</div></div></div>
+    </div>
+  </section>
+</body>
+</html>

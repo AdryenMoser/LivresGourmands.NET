@@ -1,0 +1,587 @@
+{
+  "info": {
+    "name": "Livres Gourmands",
+    "description": "API Livres Gourmands. Les mots de passe sont hashés avec bcrypt côté serveur. Le dossier PUT et DELETE reprend les verbes signalés manquants au compte rendu.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:4721"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "reference",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Inscription",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Martin\",\n  \"prenom\": \"Léa\",\n  \"email\": \"lea.martin@example.com\",\n  \"motDePasse\": \"Recette123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Connexion client",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('login 200', function () { pm.response.to.have.status(200); });",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set('token', body.token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"camille.client@livresgourmands.test\",\n  \"motDePasse\": \"Camille123!\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Profil",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/users/me"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Catalogue",
+      "item": [
+        {
+          "name": "Rechercher",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/ouvrages?texte=bouillon&populariteMin=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "ouvrages"
+              ],
+              "query": [
+                {
+                  "key": "texte",
+                  "value": "bouillon"
+                },
+                {
+                  "key": "populariteMin",
+                  "value": "0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Détail",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/ouvrages/9"
+          }
+        },
+        {
+          "name": "Catégories",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/categories"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Panier et commande",
+      "item": [
+        {
+          "name": "Ajouter au panier",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/panier/items",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ouvrageId\": 1,\n  \"quantite\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Voir le panier",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/panier"
+          }
+        },
+        {
+          "name": "Créer la commande",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "  pm.collectionVariables.set('reference', pm.response.json().commande.paiement.reference);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/commandes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adresseLivraison\": \"12 rue des Oliviers\\n13001 Marseille\\nFrance\",\n  \"modeLivraison\": \"standard\",\n  \"modePaiement\": \"carte_simulee\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Simuler le paiement",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/paiements/{{reference}}/simuler",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resultat\": \"reussi\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Listes, avis, atelier",
+      "item": [
+        {
+          "name": "Liste par code",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/listes/TABLE-HIVER"
+          }
+        },
+        {
+          "name": "Avis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/ouvrages/9/avis",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"note\": 5\n}"
+            }
+          }
+        },
+        {
+          "name": "Commentaire",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/ouvrages/9/commentaires",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contenu\": \"La pâte à crêpes est enfin tenable un mardi soir.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Connexion éditeur",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) pm.collectionVariables.set('token', pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"louis.editeur@livresgourmands.test\",\n  \"motDePasse\": \"Editeur123!\"\n}"
+            }
+          }
+        },
+        {
+          "name": "File des commentaires",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/commentaires?statut=en_attente"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PUT et DELETE",
+      "item": [
+        {
+          "name": "Connexion gestionnaire",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) pm.collectionVariables.set('token', pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"sara.gestion@livresgourmands.test\",\n  \"motDePasse\": \"Gestion123!\"\n}"
+            },
+            "description": "JWT pour les requêtes PUT et DELETE du catalogue."
+          }
+        },
+        {
+          "name": "PUT ouvrage",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/ouvrages/11",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titre\": \"Bouillons clairs\",\n  \"auteur\": \"Hélène Ortiz\",\n  \"isbn\": \"978-2-38011-011-0\",\n  \"description\": \"Bouillons, soupes et nouilles pour les soirs où l'on veut un bol plutôt qu'une assiette.\",\n  \"prix\": 23.00,\n  \"stock\": 3,\n  \"categorieId\": 1\n}"
+            },
+            "description": "Met à jour un ouvrage existant."
+          }
+        },
+        {
+          "name": "DELETE ouvrage",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/ouvrages/4",
+            "description": "Supprime Tartes sans détour (stock 0, sans commande). 409 si l'ouvrage est déjà lié."
+          }
+        },
+        {
+          "name": "PUT catégorie",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/categories/5",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Pour débuter\",\n  \"description\": \"Premiers gestes, premiers menus, sans présumer un placard déjà plein.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "POST catégorie vide",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/categories",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Hors série\",\n  \"description\": \"Catégorie créée pour illustrer DELETE.\"\n}"
+            },
+            "description": "Noter l'id renvoyé, puis DELETE /api/categories/{id}."
+          }
+        },
+        {
+          "name": "DELETE catégorie",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/categories/6",
+            "description": "Remplacer 6 par l'id créé juste avant. Refus si la catégorie contient des ouvrages."
+          }
+        },
+        {
+          "name": "Connexion client",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) pm.collectionVariables.set('token', pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"camille.client@livresgourmands.test\",\n  \"motDePasse\": \"Camille123!\"\n}"
+            }
+          }
+        },
+        {
+          "name": "PUT quantité du panier",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/panier/items/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantite\": 2\n}"
+            },
+            "description": "L'id est celui de la ligne renvoyée par POST /api/panier/items."
+          }
+        },
+        {
+          "name": "DELETE ligne de panier",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/panier/items/1"
+          }
+        },
+        {
+          "name": "DELETE vider le panier",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{baseUrl}}/api/panier"
+          }
+        },
+        {
+          "name": "PUT statut de commande",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/commandes/1/status",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statut\": \"en_preparation\"\n}"
+            },
+            "description": "Gestionnaire ou administrateur. Se connecter avec Sara ou Noémie avant cet appel."
+          }
+        },
+        {
+          "name": "PUT valider un commentaire",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/commentaires/2/valider",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"decision\": \"valider\"\n}"
+            },
+            "description": "Éditeur (Louis) ou administrateur. decision : valider ou rejeter."
+          }
+        },
+        {
+          "name": "PUT suspendre un compte",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/api/users/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actif\": false\n}"
+            },
+            "description": "Administrateur seulement. Le hash bcrypt existant est conservé."
+          }
+        }
+      ]
+    }
+  ]
+}
