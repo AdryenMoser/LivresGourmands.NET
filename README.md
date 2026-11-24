@@ -82,6 +82,7 @@ www.figma.com/design/PuhK1y0VMapg4sketmsE21/Livres-Gourmands-simple2
 
 ## Prototype Figma (XD pas disponible)
 https://www.figma.com/proto/PuhK1y0VMapg4sketmsE21/Livres-Gourmands-simple2?node-id=0-1&t=Ugxs4RkgI5Pf48h5-1
+https://www.figma.com/proto/
 
 
 ## Prérequis
