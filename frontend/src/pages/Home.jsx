@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { api, messageOf } from '../api';
 import BookCard from '../components/BookCard';
 import Layout from '../components/Layout';
-import { coverFor } from '../covers';
 
 export default function Home() {
   const [params, setParams] = useSearchParams();
@@ -13,7 +12,6 @@ export default function Home() {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
-  const [slide, setSlide] = useState(0);
 
   useEffect(() => {
     api.get('/categories').then(({ data }) => setCategories(data.categories)).catch(() => {});
@@ -34,8 +32,6 @@ export default function Home() {
     return () => { cancel = true; };
   }, [texte, categorie]);
 
-  const spotlight = books.slice(0, 3);
-
   function chooseCategory(id) {
     const next = new URLSearchParams(params);
     if (id) next.set('categorie', id);
@@ -51,26 +47,6 @@ export default function Home() {
           <h1 className="display-5">Du premier couteau au dernier service</h1>
           <p className="col-lg-8">Des livres pour débuter, pour recevoir, et pour les services qui n’admettent pas l’à-peu-près.</p>
         </div>
-        {spotlight.length > 0 && (
-          <div className="container pb-4" aria-roledescription="carrousel">
-            <div className="bg-white text-dark">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img className="cover-photo" src={coverFor(spotlight[slide].titre)} alt={`Couverture de ${spotlight[slide].titre}`} />
-                </div>
-                <div className="col-md-8 p-4">
-                  <h2 className="h3 text-uppercase">{spotlight[slide].titre}</h2>
-                  <p className="mb-1">{spotlight[slide].auteur}</p>
-                  <p>{spotlight[slide].categorie?.nom}</p>
-                  <div className="d-flex gap-2">
-                    <button type="button" className="btn btn-navy" onClick={() => setSlide((value) => (value + spotlight.length - 1) % spotlight.length)}>Précédent</button>
-                    <button type="button" className="btn btn-gold" onClick={() => setSlide((value) => (value + 1) % spotlight.length)}>Suivant</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </section>
       <div className="container">
         <div className="d-flex flex-wrap gap-2 mb-4" role="group" aria-label="Filtrer par catégorie">
