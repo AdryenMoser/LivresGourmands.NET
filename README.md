@@ -75,14 +75,17 @@ npm run client     # React + Bootstrap — http://127.0.0.1:4722
 
 Lancer l’API avant le client. Le client proxifie `/api` vers le port 4721. Le panier d’un visiteur reste dans `localStorage`. Un client connecté le synchronise avec l’API. L’atelier (`/admin`) est réservé à l’éditeur, au gestionnaire et à l’administrateur.
 
-Il n’y a pas de fichier Figma ni Adobe XD, ni de vidéo : ces outils ne sont pas dans l’environnement. Le mot de passe oublié n’envoie pas de courriel.
+Le mot de passe oublié n’envoie pas de courriel : cette fonction n’est pas dans l’API.
 
-## Maquette Figma :
-www.figma.com/design/PuhK1y0VMapg4sketmsE21/Livres-Gourmands-simple2
+Adobe XD n’est pas utilisé. La maquette et le prototype sont sur Figma.
 
-## Prototype Figma (XD pas disponible)
+## Maquette Figma
+
+https://www.figma.com/design/PuhK1y0VMapg4sketmsE21/Livres-Gourmands-simple2
+
+## Prototype Figma
+
 https://www.figma.com/proto/PuhK1y0VMapg4sketmsE21/Livres-Gourmands-simple2?node-id=0-1&t=Ugxs4RkgI5Pf48h5-1
-https://www.figma.com/proto/
 
 
 ## Prérequis
